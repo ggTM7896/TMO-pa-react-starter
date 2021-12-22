@@ -23,11 +23,12 @@ function showForm() {
 }
 
 function showRecipes() {
+  var out_text = "";
   if (recipes.length === 0) {
-	  var out_text = "<h3> There are no recipes to list </h3>";
+	  out_text = "<h3> There are no recipes to list </h3>";
 	 document.getElementById("recipe_list").innerHTML = out_text;
   } else {
-	 var out_text = "<ul>";
+	 out_text = "<ul>";
 	 for (let i = 0; i < recipes.length; i++) {
 	   out_text += "<li role='listitem'>" + recipes[i] + "</li>";
 	  }
