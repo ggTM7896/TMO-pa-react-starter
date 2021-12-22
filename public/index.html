@@ -12,5 +12,27 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+	<h1> My Recipes </h1>
+	<div id="recipe_list"></div>
+	<p>
+	<button id="add_recipe"> Add Recipe </button>
+
+	<form id="recipe_form">
+        <h2 id="lbl_add_rec">Add Recipe</h2>
+		<div id="div_rec_name">
+		    <label id="lbl_rec_name"> Recipe Name:</label>
+			<input id="rec_name" type="text" placeholder="Enter the recipe name" />
+			<p></p>
+        </div>
+		<div id="div_rec_instrns">
+		    <label id="lbl_rec_instrns">Recipe Instructions:</label>
+			<input id="rec_instrns" type="text" placeholder="Enter the recipe instructions" />
+            <p></p>     
+	    </div>
+		<button id="submit">Submit</button>
+ 	</form>
+	
+	<p></p>
+	<div id="message"></div>
   </body>
 </html>
