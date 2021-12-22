@@ -1,0 +1,91 @@
+web-app-lessons-learned
+
+What I learned about HTML and JavaScript
+by doing the TMO-pa-react-started project
+(pre-assessment for SWE Bootcamp)
+
+1. General rule: nest related objects together,
+   so that web readers parsing the content can know
+   that the nested objects are functionally related.
+
+2. When adding a label for an input box,
+   nest the input box inside the label, like this:
+
+   <label>Do you like peas?
+     <input type="checkbox" name="peas">
+   </label>
+
+   This is better than trying to use the "for" attribute
+   individually, like this:   
+
+   <label for="username">Enter your username:</label>
+   <input id="username">
+   <label for="username">Forgot your username?</label>
+
+   The "for" attribute has to relate to the "id" attribute
+   in the input box.
+
+3. modify the code to flag the submit button as type "button",
+   because embedding it in a form changes its default type.
+
+4. Due to the new ARIA standard, which has been incorporated
+   into HTML5, you must add "role" attributes to many HTML tags.
+   These don't affect how the page is physically rendered.
+   But they affect how web page readers for the disabled parse
+   the web page. They often search for tags having a particular
+   role, and can be thrown off if the role is not there.
+
+   For example, even though an "Hn" tag may imply that it
+   functions as a heading, setting its role to "heading"
+   is important for web parsers to be sure it really is.
+
+5. In a form, it's best to have all parts of the form be
+   children of the form itself. Use nesting liberally.
+   I used the following nesting for the input boxes:
+
+   <div id="div_rec_name">
+     <label id="lbl_rec_name">recipe-name
+        <input id="rec_name" name="recipe-name" type="text" 
+               role="textbox" placeholder="Enter the recipe name" />
+     </label>
+     <p></p>
+   </div>
+
+6. Have elements on the page that stay in a fixed place,
+   but are either hidden (when not needed) or visible (when needed).
+   This saves a lot of effort removing and creating page elements.
+
+   I used this technique for the bootcamp pretest project and have
+   used it a lot in previous web pages.
+
+   To make an element visible:
+     document.getElementById("recipe_form").style.visibility = "visible";
+
+   To make an element hidden:
+     document.getElementById("recipe_form").style.visibility = "hidden";
+
+7. Be careful of minor changes to html or javascript code that can cause
+   entire sections of your web page to become invisible!
+
+   Be especially careful to terminate each HTML element properly,
+   with a "slashed" element.
+
+8. The react boilerplate javascript code we got in our sample project
+   simply returned a bunch of raw HTML code. I found that I had to
+   de-activate this and simply return an empty string (""). Then I
+   could code the project the way I normally do, by having the javascript
+   code use document.getElementById() to find and modify the desired
+   elements on the HTML page. This includes installing onclick handlers,
+   changing visibility, and extracting data from input boxes.
+
+9. The trick to making the recipe list objects persist was to add
+   a type specifier to the Submit botton that declared its type to
+   be type "button". You may think that all buttons are of this type,
+   but the <form> tag causes buttons embedded within it to have
+   different behavior. The default behavior is to submit a form
+   to a web URL. If you don't want this to happen, and simply want
+   to make a local action occur when the button is clicked, then
+   you have to do two things:
+   1. In HTML, Add "type='button'" to the Submit button's "button" tag
+   2. In JS, add an onclick handler to the Submit button.
+
