@@ -32,7 +32,7 @@ function showRecipes() {
 	 for (let i = 0; i < recipes.length; i++) {
 	   out_text += "<li role='listitem'>" + recipes[i] + "</li>";
 	  }
-	  out_text += "<ul>";
+	  out_text += "</ul>";
       document.getElementById("recipe_list").innerHTML = out_text;
   }
 }
