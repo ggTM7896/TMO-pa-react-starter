@@ -1,6 +1,6 @@
 import './App.css';
 
-var recipes = ["Spinach Soufflee", "Potatoes Au Gratin"]; 
+var recipes = []; 
 
 <p id="demo"></p>
 
