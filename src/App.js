@@ -24,12 +24,14 @@ function showForm() {
 
 function showRecipes() {
   if (recipes.length === 0) {
-	 document.getElementById("recipe_list").innerHTML = "There are no recipes to list";
+	  var out_text = "<dl> There are no recipes to list </dl>";
+	 document.getElementById("recipe_list").innerHTML = out_text;
   } else {
-	 var out_text = "";
+	 var out_text = "<ul>";
 	 for (let i = 0; i < recipes.length; i++) {
-	   out_text += recipes[i] + ", ";
+	   out_text += "<li role='listitem'>" + recipes[i] + "</li>";
 	  }
+	  out_text += "<ul>";
       document.getElementById("recipe_list").innerHTML = out_text;
   }
 }
