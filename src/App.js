@@ -24,7 +24,7 @@ function showForm() {
 
 function showRecipes() {
   if (recipes.length === 0) {
-	  var out_text = "<dl> There are no recipes to list </dl>";
+	  var out_text = "<dl role='heading'> There are no recipes to list </dl>";
 	 document.getElementById("recipe_list").innerHTML = out_text;
   } else {
 	 var out_text = "<ul>";
