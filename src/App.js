@@ -36,7 +36,7 @@ function showRecipes() {
 
 function SubmitClicked() {
   var rec_name = document.getElementById("rec_name").value;
-  var rec_instrns = document.getElementById("rec_instrns").value;
+ // var rec_instrns = document.getElementById("rec_instrns").value;
   recipes.push(rec_name);
   showRecipes();
 //  document.getElementById("message").innerHTML = rec_name;
