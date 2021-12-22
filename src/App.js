@@ -2,7 +2,7 @@ import './App.css';
 
 var recipes = []; 
 
-<p id="demo"></p>
+// <p id="demo"></p>
 
 function hideForm() {
   document.getElementById("recipe_form").style.visibility = "hidden";
@@ -60,12 +60,13 @@ function App() {
   hideForm();
   document.getElementById("add_recipe").onclick = function(){AddRecipeClicked()};
  
-  return (
-    <div>
-	<h1 className="doNotRemoveMe">Hello world.</h1>
-     {/* ^ Do not remove this element ^ */}
-	</div>
-   );
+//  return (
+//    <div>
+//	<h1 className="doNotRemoveMe">Hello world.</h1>
+//     {/* ^ Do not remove this element ^ */}
+//	</div>
+//   );
+    return ("");
 }
 
 export default App;
