@@ -2,6 +2,63 @@
   text-align: center;
 }
 
+.tm-button {
+  background-color: #E20074;
+  border-color: #E20074;
+  border-width: 2px;
+  color: #FFFFFF;
+  box-sizing: border-box;
+  line-height: 30px;
+  font-size: 24px;
+  font-family: Verdana;
+  margin-top: 16px;
+  float: left;
+  box-sizing: border-box;
+}
+
+.tm-button:hover {
+  background-color: #ED55A0;
+  border-color: #ED55A0;
+}
+
+tm-button:active {
+  border-color: #E20074;
+}
+
+.tm-textbox {
+  line-height: 30px;
+  margin: 8px;
+  padding-left: 8px;
+  border-width: 2px;
+  font-family: Verdana;
+  font-size: 16px;
+  
+}
+
+.tm-div {
+  margin-left: 8px;
+}
+
+.tm-label {
+  font-size: 20px;
+  display: inline-block;
+  text-align: right;
+  width: 480px;
+}
+
+.tm-p {
+  font-size: 20px;
+}
+
+h1 {
+  color: #E20074;
+  clear: both;
+}
+
+li {
+  font-size: 20px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

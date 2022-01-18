@@ -1,72 +1,79 @@
+import React from 'react';
 import './App.css';
 
-var recipes = []; 
+var recipes = [
 
-// <p id="demo"></p>
+];
 
-function hideForm() {
-  document.getElementById("recipe_form").style.visibility = "hidden";
-  document.getElementById("div_rec_name").style.visibility = "hidden";
-  document.getElementById("rec_name").style.visibility = "hidden";
-  document.getElementById("div_rec_instrns").style.visibility = "hidden";
-  document.getElementById("rec_instrns").style.visibility = "hidden";
-  document.getElementById("submit").style.visibility = "hidden";
-}
+function DisplayList(props) {
+  if (props.my_recipe_list.length === 0){
+    return (
+      <div>
+        <p></p>
+        <h1>My Recipes</h1>
+        <p class="tm-p"> No recipes to list</p>
+      </div>
+    )
 
-function showForm() {
-  document.getElementById("recipe_form").style.visibility = "visible";
-  document.getElementById("div_rec_name").style.visibility = "visible";
-  document.getElementById("rec_name").style.visibility = "visible";
-  document.getElementById("div_rec_instrns").style.visibility = "visible";
-  document.getElementById("rec_instrns").style.visibility = "visible";
-  document.getElementById("submit").style.visibility = "visible";
-}
-
-function showRecipes() {
-  var out_text = "";
-  if (recipes.length === 0) {
-	  out_text = "<dl> There are no recipes to list </dl>";
-	 document.getElementById("recipe_list").innerHTML = out_text;
   } else {
-	 out_text = "<ul>";
-	 for (let i = 0; i < recipes.length; i++) {
-	   out_text += "<li role='listitem'>" + recipes[i] + "</li>";
-	  }
-	  out_text += "</ul>";
-      document.getElementById("recipe_list").innerHTML = out_text;
+    return (
+      <div>
+      <p></p>
+       <h1>My Recipes</h1>
+        <ul>
+          {
+            props.my_recipe_list
+              .map(recipe =>
+                <li> {recipe.name} </li>
+              )
+          }
+        </ul>
+      </div>
+    )
   }
 }
 
-function SubmitClicked() {
-  var rec_name = document.getElementById("rec_name").value;
- // var rec_instrns = document.getElementById("rec_instrns").value;
-  recipes.push(rec_name);
-  showRecipes();
-//  document.getElementById("message").innerHTML = rec_name;
-//  alert(rec_name);
-//  alert(recipes);
-}
-
-function AddRecipeClicked() {
-//  document.getElementById("message").innerHTML = "Button Clicked";
-  document.getElementById("add_recipe").style.visibility = "hidden";
-  showForm();
-  
-  document.getElementById("submit").onclick = function(){SubmitClicked()};
-}
-
 function App() {
-  showRecipes();
-  hideForm();
-  document.getElementById("add_recipe").onclick = function(){AddRecipeClicked()};
  
-//  return (
-//    <div>
-//	<h1 className="doNotRemoveMe">Hello world.</h1>
-//     {/* ^ Do not remove this element ^ */}
-//	</div>
-//   );
-    return ("");
+  const [list, setList] = React.useState(recipes);
+  const [name, setName] = React.useState("");
+
+  function handleAdd() {
+    const newList = list.concat({ name });
+    setList(newList);
+  }
+
+  function handleInput(event) {
+    setName(event.target.value);
+  }
+
+  return (
+    <div class="tm-div">
+      <div>
+        <p></p>
+        <DisplayList my_recipe_list={list}/>
+      </div>
+      <div>
+        <p></p>
+        <form>
+          <fieldset>
+            <label class="tm-label" name="recipe-name"> recipe-name
+            <input type="text" class="tm-textbox" name="recipe-name"
+                   onChange={handleInput} />
+            </label>
+            <p></p>
+            <label class="tm-label" name="recipe-instructions"> recipe-instructions
+            <input type="text" class="tm-textbox" name="recipe-instructions" />
+            </label>
+          </fieldset>
+        <button class="tm-button" type="button" onClick={handleAdd}>
+          Add
+        </button>
+        <p></p>
+        </form>
+      </div>
+	  </div>
+   );
 }
 
 export default App;
